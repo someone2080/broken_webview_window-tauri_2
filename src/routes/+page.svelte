@@ -28,12 +28,16 @@
 
 			// 	we need to set position here again
 			// await webview.setPosition(position)
+
+			// We need to maximize window here to make it visible, but it will flicker on the desired Display and jump back to the primary Display
+			await webview.maximize() // w/o this, window will remain hidden, or will blink on Primary Display
 		});
 		await webview.once('tauri://error', function(e) {
 			console.log('tauri://error', e);
 		});
 	}
 </script>
+
 
 {#each available_monitors as monitor}
 	<div class="flex flex-col border w-fit p-4">
