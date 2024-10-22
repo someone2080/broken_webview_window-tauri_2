@@ -1,0 +1,8 @@
+{
+  "identifier": "webview",
+  "description": "Capability for the main window",
+  "windows": ["*"],
+  "permissions": [
+    "core:webview:allow-create-webview-window"
+  ]
+}
