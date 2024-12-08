@@ -26,11 +26,9 @@
 			// position was reset to 0,0
 			console.log(await webview.position())
 
-			// 	we need to set position here again
-			// await webview.setPosition(position)
-
-			// We need to maximize window here to make it visible, but it will flicker on the desired Display and jump back to the primary Display
-			await webview.maximize() // w/o this, window will remain hidden, or will blink on Primary Display
+			// FIX/WORKAROUND: set position here again since it resets to 0,0
+			// NOTE: It DOESN'T work with different screen scales
+			await webview.setPosition(position)
 		});
 		await webview.once('tauri://error', function(e) {
 			console.log('tauri://error', e);
